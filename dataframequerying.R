@@ -1,0 +1,10 @@
+library(tidyverse)
+mtcars
+#mtcars %>% filter(cyl == 6)
+#mtcars %>% select(hp, mpg)
+#mtcars %>% select(-mpg)
+#mtcars %>% arrange(desc(mpg))
+#mtcars %>% mutate(mpg_times_gear = mpg * gear)
+#mtcars %>% mutate(mpg_times_gear = mpg * gear, is6cyl = cyl == 6)
+mtcars %>% group_by(cyl) %>% summarise(mean(mpg), count = n())
+mtcars %>% group_by(cyl) %>% filter(mpg > 10) %>% summarise(count = n())
